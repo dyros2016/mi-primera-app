@@ -1,24 +1,33 @@
 from django.db import models
-from django.utils import timezone
-from django.contrib.auth.models import User
-from django.db.models.signals import post_save
-from django.dispatch import receiver
+#from __future__ import incode_literals
 
 class Material(models.Model):
 	nombre= models.CharField(max_length=25)
-	medida=models.CharField(max_length=5)
+	MEDIDAS = (
+        ( 'm3','metros cubicos'),
+        ('kg', 'kilogramos'),
+        ('lbs','libras')
+    )
+	medida=models.CharField(max_length=5, choices=MEDIDAS)
+
+	def __str__(self):
+		return self.nombre
 
 class Vehiculo (models.Model):
 
-	placa= models.CharField(max_length=7)
+	placa= models.CharField(max_length=8)
 	marca= models.CharField(max_length=25)
 	modelo=models.CharField(max_length=25)
-
+	def __str__(self):
+		return self.placa
 class Chofer (models.Model):
 
 	cedula=models.CharField(max_length=10)
 	nombre=models.CharField(max_length=25)
 	apellido=models.CharField(max_length=25)
+
+	def __str__(self):
+		return self.nombre
 
 class Sucursal(models.Model):
 	nombre=models.CharField(max_length=25)
@@ -26,21 +35,21 @@ class Sucursal(models.Model):
 	telefono = models.CharField(max_length=30, blank=True)
 	#logo=models.ImageField(upload_to='pic_floder/',default='pic_folder/None/no-img.jpg')
 
-class Perfil(models.Model):
-    usuario = models.OneToOneField(User, on_delete=models.CASCADE)
-    sucursal = models.ForeignKey(Sucursal, on_delete=models.CASCADE)
- 
-@receiver(post_save, sender=User)
-def create_user_profile(sender, instance, created, **kwargs):
-    if created:
-        Perfil.objects.create(user=instance)
+class Proveedor(models.Model):
+	nombre=models.CharField(max_length=25)
+	propietario=models.CharField(max_length=25)
+	direccion=models.CharField(max_length=25)
+	def __str__(self):
+		return self.nombre
+
 
 
 class Orden(models.Model):
-	fecha= models.DateField()
-	hora=models.DateField()
+	fecha= models.DateTimeField()
+	#horae=models.DateField(blank=True,null=True)
+	#horas=models.DateField(blank=True,null=True)
 	material=models.ForeignKey(Material,on_delete=models.CASCADE)
-	medida=models.CharField(max_length=5)
+	proveedor=models.ForeignKey(Proveedor,on_delete=models.CASCADE)
 	cantidad=models.IntegerField()
 	chofer=models.ForeignKey(Chofer,on_delete=models.CASCADE)
 	#cedula=models.CharField(max_length=10)
@@ -48,4 +57,11 @@ class Orden(models.Model):
 	#placa=models.CharField(max_length=7)
 	entrega=models.CharField(max_length=15)
 	recibe=models.CharField(max_length=15)
+	#respaldo=models.ImageField(upload_to="recibos")
+	def __str__(self):
+		return '%s %s %s %s' % (self.id, self.fecha,self.material,self.cantidad)
+
+
+
+
 # Create your models here.

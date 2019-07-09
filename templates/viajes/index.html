@@ -1,0 +1,57 @@
+{% extends 'viajes/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block head_title %} Bienvenidos{% endblock %}
+
+
+{% block jumbotron %}
+<div class="container">
+    <style>
+      
+
+.jumbotron{
+  background-color: #63b128 !important;
+  color:white !important;
+}
+body {
+    background-color: #FFFFFF !important;
+}
+col-md-6 {
+  width: 50% !important;
+  display: block !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+}
+
+
+    </style>
+<div class="jumbotron">
+  <div class='row'>
+	
+	   <div class='col-sm-6 col-xs-5 '>
+        <h1>Gestor de Viajes</h1>
+        <p class="lead">Esta es una aplicacion web, la cual es una herramienta para gestionar los ingresos de materia prima a la empresa en sus distintas fabricas
+        </p>
+        <a class="btn btn-lg btn-primary" href=" " role="button">Orden de Recepcion &raquo;</a>
+    </div>
+    <div class="col-sm-6">
+      <span style="font-size: 220px; color:White;">
+        {# <img src="{% static 'img/car1.jpg' %}" class="image-responsive"/> #}
+        <i class="fab fa-empire fa-spin fa-pull-right"></i>
+
+    </span>
+   </div>
+  </div>
+</div>
+</div>
+{% endblock %}
+
+
+
+{% block content %}
+
+
+
+
+{% endblock %}

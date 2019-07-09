@@ -1,0 +1,12 @@
+
+
+            {% for material in materiales %}
+            	<h1>Listado de materiales</h1>
+                <div class="post">
+                    <div class="date">
+                        <p>Numero: {{ material.id }}</p>
+                    </div>
+                    <h1><a href="">{{ material.nombre }}</a></h1>
+                    <p>{{ material.medida|linebreaksbr }}</p>
+                </div>
+          

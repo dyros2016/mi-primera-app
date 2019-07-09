@@ -1,0 +1,44 @@
+{% extends 'viajes/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block content %}
+<div class="row">
+	<div class="col-sm-3 col-sm-offset-3">
+	</div>
+	<div class="col-sm-6 col-sm-offset-3">
+		{% if titulo %}
+			<h1 class=" text-align-center">{{titulo}}</h1>
+		{% endif %}
+<table class="table-fill">
+	<tr>
+		<th class="text-left">Id</th>
+		<th class="text-left">Placa</th>
+		<th class="text-left">Marca</th>
+		<th class="text-left">Modelo</th>
+		<th class="text-left">Accion</th>
+		
+	</tr>
+{% for vehiculo in vehiculos %}
+<tr>
+<td class="text-left">
+ <p>{{ vehiculo.id }}</p>
+</td>
+<td class="text-left">
+ {{ vehiculo.placa }}
+ </td>
+ <td class="text-left">
+ {{ vehiculo.marca }}
+ </td>
+ <td class="text-left">
+ <p>{{ vehiculo.modelo|linebreaksbr }}</p>
+ </td>
+ <td class="text-left">
+ <a class="btn btn-lg btn-primary" href="{% url 'vehiculo_edit' pk=vehiculo.pk %}" role="button">EDITAR &raquo;</a>
+ </td>
+ </tr>
+{% endfor %}
+</table>
+</div>
+</div>
+{% endblock %}
+

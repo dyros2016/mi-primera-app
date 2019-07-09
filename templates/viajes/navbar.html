@@ -1,0 +1,52 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">FERTICAMYCRUS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Materiales <span class="sr-only">(current)</span></a>
+      </li>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Vehiculos <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Choferes <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Proveedores <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Orden de Recepcion <span class="sr-only">(current)</span></a>
+      </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <form class="form-inline mt-2 mt-md-0">
+
+      <a class="nav-link" style="color:white;">{{saludo}}<span class="sr-only">(current)</span></a>
+    </form>
+         {% if request.user.is_authenticated %}
+        <li class="nav-item active">      
+           <a class="nav-link" href="{% url 'auth_logout' %}">Salir</a>
+          
+      </li>
+      {% else %}
+         
+      <li>
+        <a class="nav-link" href="{% url 'registration_register' %}">Resgistrate</a>
+      </li>
+    
+      <li>
+        <a class="nav-link" href="{% url 'auth_login' %}">Entrar</a>
+      </li>
+      {% endif %}
+      </ul>
+    
+  </div>
+</nav>

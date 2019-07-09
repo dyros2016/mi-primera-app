@@ -32,13 +32,22 @@ ALLOWED_HOSTS = ['127.0.0.1', '.pythonanywhere.com']
 # Application definition
 
 INSTALLED_APPS = [
+    #apps django
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'django.contrib.sites',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    #apps terceros
+    'crispy_forms',
+    'registration',
+    'bootstrap3',
+    'bootstrap_datepicker_plus',
+    #mis apps
     'viajes',
+    
 ]
 
 MIDDLEWARE = [
@@ -52,11 +61,20 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = 'misitio.urls'
+CRISPY_TEMPLATE_PACK = 'bootstrap3'
+
+#bootstrap
+
+
+
+
+#end bootstrap
+
 
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [os.path.join(BASE_DIR,"templates")],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -132,4 +150,15 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/1.10/howto/static-files/
 
 STATIC_URL = '/static/'
-STATIC_ROOT = os.path.join(BASE_DIR, 'static')
+STATICFILES_DIRS=[
+  os.path.join(BASE_DIR,"static_pro","static")
+]
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env","static_root")
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), "static_env","media_root")
+
+ACCOUNT_ACTIVATION_DAYS=7
+REGISTRATION_AUTO_LOGIN=True
+SITE_ID = 1
+LOGIN_REDIRECT_URL = ('/')
+
+

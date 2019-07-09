@@ -32,20 +32,7 @@ class Migration(migrations.Migration):
                 ('medida', models.CharField(max_length=5)),
             ],
         ),
-        migrations.CreateModel(
-            name='Orden',
-            fields=[
-                ('id', models.AutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('fecha', models.DateField()),
-                ('hora', models.DateField()),
-                ('medida', models.CharField(max_length=5)),
-                ('cantidad', models.IntegerField()),
-                ('entrega', models.CharField(max_length=15)),
-                ('recibe', models.CharField(max_length=15)),
-                ('chofer', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='viajes.Chofer')),
-                ('material', models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='viajes.Material')),
-            ],
-        ),
+       
         migrations.CreateModel(
             name='Perfil',
             fields=[
@@ -76,9 +63,5 @@ class Migration(migrations.Migration):
             name='usuario',
             field=models.OneToOneField(on_delete=django.db.models.deletion.CASCADE, to=settings.AUTH_USER_MODEL),
         ),
-        migrations.AddField(
-            model_name='orden',
-            name='vehiculo',
-            field=models.ForeignKey(on_delete=django.db.models.deletion.CASCADE, to='viajes.Vehiculo'),
-        ),
+       
     ]

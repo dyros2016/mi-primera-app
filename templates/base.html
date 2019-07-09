@@ -1,0 +1,48 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+   
+    <title>{% block head_title%}{% endblock %}</title>
+
+    {% include "viajes/head_css.html" %}
+     <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    
+{% include "viajes/navbar.html" %}
+<div class="container">
+
+    {% block jumbotron %}
+
+
+    {% endblock %}
+    
+
+    {% block content %}
+    {% endblock %}
+
+</div>
+
+
+
+
+
+{% include "viajes/javascript.html" %}
+</body>
+</html>

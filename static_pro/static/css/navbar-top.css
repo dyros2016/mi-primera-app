@@ -1,0 +1,15 @@
+/* Show it's not fixed to the top */
+body {
+  min-height: 75rem;
+}
+.narvar-static-top{
+	margin-bottom: 0px !important; 
+}
+.navar{
+	background-color: #207734 !important;
+}
+
+.bg-dark{
+	background-color: #207734 !important;
+}
+

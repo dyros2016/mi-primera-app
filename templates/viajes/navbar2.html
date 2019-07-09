@@ -1,0 +1,87 @@
+<nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+  <a class="navbar-brand" href="#">FERTICAMYCRUS</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="/">Inicio <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"id="navabrDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Material
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'material_nuevo' %}">Nuevo</a>
+          <a class="dropdown-item" href="{% url 'materiales_ledit' %}">Editar</a>
+          <a class="dropdown-item" href="{% url 'materiales_list' %}">Listar</a>
+          
+        </div>
+       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"id="navabrDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Vehiculo
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'vehiculo_nuevo' %}">Nuevo</a>
+          <a class="dropdown-item" href="{% url 'vehiculos_ledit' %}">Editar</a>
+          <a class="dropdown-item" href="{% url 'vehiculos_list' %}">Listar</a>
+          
+        </div>
+       </li>
+       <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"id="navabrDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Chofer
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'chofer_nuevo' %}">Nuevo</a>
+          <a class="dropdown-item" href="{% url 'choferes_ledit' %}">Editar</a>
+          <a class="dropdown-item" href="{% url 'choferes_list' %}">Listar</a>
+          
+        </div>
+       </li>
+      
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"id="navabrDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Proveedor
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'proveedor_nuevo' %}">Nuevo</a>
+          <a class="dropdown-item" href="{% url 'proveedores_ledit' %}">Editar</a>
+          <a class="dropdown-item" href="{% url 'proveedores_list' %}">Listar</a>
+          
+        </div>
+       </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#"id="navabrDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Orden de Recepcion
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="{% url 'orden_nuevo' %}">Nuevo</a>
+          <a class="dropdown-item" href="{% url 'vehiculos_ledit' %}">Editar</a>
+          <a class="dropdown-item" href="{% url 'vehiculos_list' %}">Listar</a>
+          
+        </div>
+       </li>
+    </ul>
+    <ul class="nav navbar-nav navbar-right">
+        <form class="form-inline mt-2 mt-md-0">
+
+      <a class="nav-link" style="color:white;">{{saludo}}<span class="sr-only">(current)</span></a>
+    </form>
+         {% if request.user.is_authenticated %}
+        <li class="nav-item active">      
+           <a class="nav-link" href="{% url 'auth_logout' %}">Salir</a>
+          
+      </li>
+      {% else %}
+         
+      <li>
+        <a class="nav-link" href="{% url 'registration_register' %}">Resgistrate</a>
+      </li>
+    
+      <li>
+        <a class="nav-link" href="{% url 'auth_login' %}">Entrar</a>
+      </li>
+      {% endif %}
+      </ul>
+    
+  </div>
+</nav>

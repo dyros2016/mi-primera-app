@@ -1,0 +1,87 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+  <head>
+   
+    <title>{% block head_title%}{% endblock %}</title>
+
+    {% include "viajes/head_css.html" %}
+     {% include "viajes/javascript.html" %}
+
+     <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+      }
+
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .navar{
+  background-color: #207734 !important;
+}
+.navbar {
+  position: fixed !important;
+  min-height: 50px;
+  margin-bottom: 20px;
+  border: 1px solid transparent;
+}
+
+.bg-dark{
+  background-color: #207734 !important;
+}
+.narvar-static-top{
+  margin-bottom: 0px !important; 
+  }
+
+.jumbotron{
+  background-color: #207734 !important;
+}
+.nav-link:hover {
+    color: #b4c9e0 !important;
+}
+
+    </style>
+    {% load bootstrap3 %}
+{% bootstrap_css %}
+{% bootstrap_javascript jquery='full' %}
+
+{% block extrahead %}
+{% endblock %}
+  </head>
+  <body>
+    
+{% include "viajes/navbar2.html" %}
+
+
+ {% if request.user.is_authenticated %}
+</br>
+<div class="container">
+
+    {% block jumbotron %}
+  
+    {% endblock %}
+    
+
+    {% block content %}
+
+    {% endblock %}
+
+</div>
+{% else %}
+<p> Debe Autenticarse para gestionar datos</p>
+{% endif %}
+
+
+
+
+
+
+</body>
+</html>
