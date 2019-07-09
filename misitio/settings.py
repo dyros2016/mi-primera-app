@@ -109,7 +109,7 @@ DATABASES = {
             'PASSWORD': 'mysql2019',
             'HOST': 'localhost',
             'PORT': '3306',
-        }
+        },
         'dyros1991$gestmaterial': {
             'ENGINE': 'django.db.backends.mysql',
             'NAME': 'dyros1991$gestmaterial',
